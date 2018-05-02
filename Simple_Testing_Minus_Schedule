@@ -2,7 +2,7 @@ const int LED_Tree = 9;
 const int LED_Ore = 11;
 const int LED_House = 10;
 const int LED_Coal = 12;
-int i = 0 
+int i = 0;
 
 void setup() {
   // put your setup code here, to run once:
