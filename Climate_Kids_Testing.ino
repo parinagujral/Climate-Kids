@@ -115,7 +115,7 @@ Serial.println(Voltage_Coal);
 
 if (Voltage_Coal = 3.676)
   {
-    if (Voltage_Coal = 4.31)
+    if (Voltage_House = 4.31)
    {
     digitalWrite(LED_House, HIGH)
    }
