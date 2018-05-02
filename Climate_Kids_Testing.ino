@@ -12,11 +12,12 @@ const int LED_Coal = 14;
 
 void setup() {
   // put your setup code here, to run once:
-pinMode(LED, OUTPUT); 
-Serial.begin(9600);     
+  pinMode(LED_Tree, OUTPUT);
+  pinMode(LED_Ore, OUTPUT);
+  pinMode(LED_Coal, OUTPUT);
+  pinMode(LED_House, OUTPUT);
+  Serial.begin(9600);     
 }
-
-// Make sure to range Voltage between 4:30-4:32 // 
 
 void loop() {
  // put your main code here, to run repeatedly:
@@ -56,15 +57,6 @@ if (Voltage_Tree = 2.203)
 
 // Blink after 3 minutes to show tree is ready //
 
-if (timeElapsed > interval)
-  {
-    digitalWrite(LED_Tree, HIGH);
-    delay(100);
-    digitalWrite(LED_Tree, LOW);
-    delay(100);
-    timeElapsed = 0;
-  }
-
  // Registering house token //
   
 Voltage_House = analogRead(A1);
@@ -103,9 +95,7 @@ if (Voltage_Ore = 1.116)
       timeElapsed = 0;
     }
   }
-}
  
-
  // Registering power plant token //
 Voltage_Coal = analogRead(A0);
 Voltage_Coal = (Voltage_Coal * 5.0) / 1024.0;
@@ -117,9 +107,8 @@ if (Voltage_Coal = 3.676)
   {
     if (Voltage_House = 4.31)
    {
-    digitalWrite(LED_House, HIGH)
+    digitalWrite(LED_House, HIGH);
    }
-   }
+  }
  }
  
-}
