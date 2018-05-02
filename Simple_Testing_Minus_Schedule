@@ -1,12 +1,8 @@
-unsigned long time;
-float Voltage_House = 0.0;
-float Voltage_Tree = 0.0;
-float Voltage_Ore = 0.0;
-float Voltage_Coal = 0.0;
 const int LED_Tree = 9;
 const int LED_Ore = 11;
 const int LED_House = 10;
 const int LED_Coal = 12;
+int i = 0 
 
 void setup() {
   // put your setup code here, to run once:
@@ -19,55 +15,24 @@ void setup() {
 
 void loop() {
 
-Voltage_Tree = analogRead(A0);
-Voltage_Tree = (Voltage_Tree * 5.0) / 1024.0;
-Serial.println(Voltage_Tree);
-
-if (Voltage_Tree > 2.0 && Voltage_Tree < 2.5) 
-    {
-      int i = 0;
-      for (int i = 0; i < 255; i++){ //if i is less than 255 then increase i with 1
-      analogWrite(LED_Tree, i); //write the i value to pin 11
-      delay(5); //wait 5 ms then do the for loop again
+for (int i = 0; i < 255; i++){ //if i is less than 255 then increase i with 1
+  analogWrite(LED_Tree, i); //write the i value to pin 11
+  delay(5); //wait 5 ms then do the for loop again
     }
-      for (int i = 255; i > 0; i--){ //descrease i with 1
-      analogWrite(LED_Tree, i);
-      delay(5);
-    }
+for (int i = 255; i > 0; i--){ //descrease i with 1
+  analogWrite(LED_Tree, i);
+  delay(5);
     }
 
-Voltage_Ore = analogRead(A0);
-Voltage_Ore = (Voltage_Ore * 5.0) / 1024.0;
-Serial.println(Voltage_Ore);
-
-if (Voltage_Ore > 1.10 && Voltage_Ore <1.20)
-{
-    int i = 0;
-    for (int i = 0; i < 255; i++){ //if i is less than 255 then increase i with 1
-      analogWrite(LED_Ore, i); //write the i value to pin 11
-      delay(5); //wait 5 ms then do the for loop again
+for (int i = 0; i < 255; i++){ //if i is less than 255 then increase i with 1
+  analogWrite(LED_Ore, i); //write the i value to pin 11
+  delay(5); //wait 5 ms then do the for loop again
     }
-    for (int i = 255; i > 0; i--){ //descrease i with 1
-      analogWrite(LED_Ore, i);
-      delay(5);
-    }
+for (int i = 255; i > 0; i--){ //descrease i with 1
+  analogWrite(LED_Ore, i);
+  delay(5);
     }
 
-Voltage_House = analogRead(A1);
-Voltage_House = (Voltage_House * 5.0) / 1024.0;
-Serial.println(Voltage_House);
-
-if (Voltage_House > 4.0 && Voltage_House < 4.5) 
-{
-  digitalWrite(LED_House, HIGH);
-}
-
-Voltage_Coal = analogRead(A0);
-Voltage_Coal = (Voltage_Coal * 5.0) / 1024.0;
-Serial.println(Voltage_Coal);
-
-if (Voltage_Coal > 3.3 && Voltage_Coal < 3.7) 
-{
-  digitalWrite(LED_Coal, HIGH);
-}
+digitalWrite(LED_House, HIGH);
+digitalWrite(LED_Coal, HIGH);
 }
