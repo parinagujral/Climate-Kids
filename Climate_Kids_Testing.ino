@@ -1,6 +1,6 @@
 #include <elapsedMillis.h>
 unsigned long time;
-unsigned int interval = 30000;
+unsigned int interval = 3000; // 180000 ms for 3 minutes // 
 float Voltage_House = 0.0;
 float Voltage_Tree = 0.0;
 float Voltage_Ore = 0.0;
@@ -32,17 +32,20 @@ Serial.println(Voltage_Tree);
 
 // Fade in and out when the tree is inserted, and blinks bright when the lumber is disposed //
 
-if (Voltage_Tree = 2.203)
+if (Voltage_Tree = 2.203) 
 {
     elapsedMillis timeElapsed;
-    int i = 0;
-    for (int i = 0; i < 255; i++){ //if i is less than 255 then increase i with 1
+    if (timeElapsed < interval)
+    {
+      int i = 0;
+      for (int i = 0; i < 255; i++){ //if i is less than 255 then increase i with 1
       analogWrite(LED_Tree, i); //write the i value to pin 11
       delay(5); //wait 5 ms then do the for loop again
     }
-    for (int i = 255; i > 0; i--){ //descrease i with 1
+      for (int i = 255; i > 0; i--){ //descrease i with 1
       analogWrite(LED_Tree, i);
       delay(5);
+    }
     }
     
   if (timeElapsed > interval)
@@ -51,7 +54,6 @@ if (Voltage_Tree = 2.203)
     delay(100);
     digitalWrite(LED_Tree, LOW);
     delay(100);
-    timeElapsed = 0;
   }
 }
 
@@ -74,6 +76,8 @@ Serial.println(Voltage_Ore);
 if (Voltage_Ore = 1.116)
   {
     elapsedMillis timeElapsed;
+    if (timeElapsed < interval)
+    {
     int i = 0;
     for (int i = 0; i < 255; i++){ //if i is less than 255 then increase i with 1
       analogWrite(LED_Ore, i); //write the i value to pin 11
@@ -92,7 +96,6 @@ if (Voltage_Ore = 1.116)
       delay(100);
       digitalWrite(LED_Tree, LOW);
       delay(100);
-      timeElapsed = 0;
     }
   }
  
