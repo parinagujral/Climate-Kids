@@ -48,7 +48,7 @@ if (Voltage_Tree = 2.203)
     }
     }
     
-  if (timeElapsed > interval)
+  else if (timeElapsed > interval)
   {
     digitalWrite(LED_Tree, HIGH);
     delay(100);
@@ -87,10 +87,11 @@ if (Voltage_Ore = 1.116)
       analogWrite(LED_Ore, i);
       delay(5);
     }
+    }
 
 // Blink after 3 minutes to show ore is ready //
 
-    if (timeElapsed > interval)
+    else if (timeElapsed > interval)
     {
       digitalWrite(LED_Tree, HIGH);
       delay(100);
